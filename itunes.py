@@ -13,7 +13,10 @@ response = requests.get('https://itunes.apple.com/search?country=JP&language=ja_
 data = response.json()
 
 # とりあえず全部表示
-print(json.dumps(data, indent=4, ensure_ascii=False).encode().decode())
+#print(json.dumps(data, indent=4, ensure_ascii=False).encode().decode())
+
+for i in range(int(data["resultCount"])):
+    print(data["results"][i]["trackName"])
 
 # 件数の表示
 print('検索結果：' + str(data['resultCount']) + ' 件')
